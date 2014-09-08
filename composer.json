@@ -1,0 +1,26 @@
+{
+    "name": "eye4web/eye4web-zf2-abac",
+    "description": "Abac for Zend Framework 2",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "zf2",
+        "abac"
+    ],
+    "homepage": "https://github.com/Eye4web/Eye4webZf2Abac",
+    "authors": [
+        {
+            "name": "Nikolaj Løvenhardt Petersen",
+            "email": "np@eye4web.dk"
+        }
+    ],
+    "extra": {
+        "branch-alias": {
+            "dev-master": "master-dev"
+        }
+    },
+    "require": {
+        "php": ">=5.4",
+        "zendframework/zendframework": "~2.3.*"
+    },
+}
