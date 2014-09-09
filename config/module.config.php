@@ -2,11 +2,7 @@
 
 return [
     'eye4web_abac' => [
-        'assertion_manager' => [
-            'factories' => [
-                'page.view' => 'Application\Factory\Assertion\PageViewAssertionFactory',
-            ]
-        ]
+        'assertion_manager' => []
     ],
 
     'doctrine' => [
