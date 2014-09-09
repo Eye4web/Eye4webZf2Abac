@@ -2,20 +2,40 @@
 
 namespace Eye4web\Zf2Abac\Service;
 
+use Eye4web\Zf2Abac\Exception;
+use Eye4web\Zf2Abac\Assertion\AssertionPluginManager;
+
 class AuthorizationService implements AuthorizationServiceInterface
 {
+    /** @var AssertionPluginManager */
     protected $assertionPluginManager;
 
-    /** @var array */
-    protected $assertions = [];
-
-    public function __construct()
+    public function __construct(AssertionPluginManager $assertionPluginManager)
     {
-
+        $this->assertionPluginManager = $assertionPluginManager;
     }
 
-    public function hasPermission($type, $typeId)
+    /**
+     * Check assertion for permissions
+     *
+     * @param string $assertionName
+     * @param string $value
+     * @param array $attributes
+     * @return bool
+     * @throws \Eye4web\Zf2Abac\Exception\AssertionNotFound
+     */
+    public function hasPermission($assertionName, $value, array $attributes)
     {
+        /** @var \Eye4web\Zf2Abac\Assertion\AssertionInterface $assertion */
+        $assertion = $this->assertionPluginManager->get($assertionName);
 
+        if (!$assertion) {
+            throw new Exception\AssertionNotFound(sprintf(
+                'The assertion \"%s\" was not found',
+                is_object($assertion) ? get_class($assertion) : gettype($assertion)
+            ));
+        }
+
+        return $assertion->hasPermission($value, $attributes);
     }
 }

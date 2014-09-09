@@ -21,6 +21,22 @@
     },
     "require": {
         "php": ">=5.4",
-        "zendframework/zendframework": "~2.3.*"
+        "zendframework/zendframework": "~2.3.*",
+        "doctrine/orm": "2.4.*"
     },
+    "autoload": {
+        "psr-0": {
+            "Eye4web\\Zf2Abac": "src/"
+        },
+        "classmap": [
+            "./Module.php"
+        ]
+    },
+    "require-dev" : {
+        "phpmd/phpmd" : "1.4.*",
+        "phpunit/phpunit" : "4.*",
+        "squizlabs/php_codesniffer" : "1.5.*",
+        "zendframework/zend-captcha" : "~2.1",
+        "codeclimate/php-test-reporter": "dev-master"
+    }
 }

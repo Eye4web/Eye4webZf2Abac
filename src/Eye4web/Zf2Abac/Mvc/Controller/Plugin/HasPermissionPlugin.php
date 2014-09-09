@@ -1,11 +1,11 @@
 <?php
 
-namespace Eye4web\Zf2Abac\View\Helper;
+namespace Eye4web\Zf2Abac\Mvc\Controller\Plugin;
 
 use Eye4web\Zf2Abac\Service\AuthorizationServiceInterface;
-use Zend\View\Helper\AbstractHelper;
+use Zend\Mvc\Controller\Plugin\AbstractPlugin;
 
-class HasPermissionHelper extends AbstractHelper
+class HasPermissionPlugin extends AbstractPlugin
 {
     /** @var AuthorizationServiceInterface */
     private $authorizationService;
@@ -19,13 +19,13 @@ class HasPermissionHelper extends AbstractHelper
     }
 
     /**
-     * @param string $name
+     * @param string $assertion
      * @param string $value
      * @param array $attributes
      * @return boolean
      */
-    public function __invoke($name, $value, array $attributes)
+    public function __invoke($assertion, $value, array $attributes = [])
     {
-        return $this->authorizationService->hasPermission($name, $value, $attributes);
+        return $this->authorizationService->hasPermission($assertion, $value, $attributes);
     }
 }
