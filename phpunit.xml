@@ -1,0 +1,18 @@
+<phpunit bootstrap="test/Bootstrap.php" colors="true">
+    <testsuites>
+        <testsuite name="Eye4web Zf2AbacTest">
+            <directory>./test</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist addUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./src</directory>
+            <exclude>
+                <directory suffix=".php">./config</directory>
+                <directory suffix=".php">./src/Eye4web/Zf2Abac/Entity</directory>
+                <file>./Module.php</file>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>
