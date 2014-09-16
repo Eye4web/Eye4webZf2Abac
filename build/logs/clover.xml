@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1410348470">
-  <project timestamp="1410348470">
+<coverage generated="1410868807">
+  <project timestamp="1410868807">
     <package name="Eye4web\Zf2Abac\Assertion">
       <file name="/var/www/vendor/eye4web/eye4web-zf2-abac/src/Eye4web/Zf2Abac/Assertion/AssertionPluginManager.php">
         <class name="AssertionPluginManager" namespace="Eye4web\Zf2Abac\Assertion">

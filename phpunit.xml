@@ -10,8 +10,14 @@
             <directory suffix=".php">./src</directory>
             <exclude>
                 <directory suffix=".php">./config</directory>
+                <directory suffix=".php">./src/Eye4web/Zf2Abac/Collcetions</directory>
                 <directory suffix=".php">./src/Eye4web/Zf2Abac/Entity</directory>
+                <directory suffix=".php">./src/Eye4web/Zf2Abac/Exception</directory>
                 <file>./Module.php</file>
+                <file>./src/Eye4web/Zf2Abac/Assertion/AssertionInterface.php</file>
+                <file>./src/Eye4web/Zf2Abac/Permission/PermissionInterface.php</file>
+                <file>./src/Eye4web/Zf2Abac/Provider/ProviderInterface.php</file>
+                <file>./src/Eye4web/Zf2Abac/Service/AuthorizationServiceInterface.php</file>
             </exclude>
         </whitelist>
     </filter>
