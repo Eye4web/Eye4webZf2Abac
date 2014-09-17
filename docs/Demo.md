@@ -36,13 +36,6 @@ Table: `abac_permissions`
 |----:|------|-------|-----------|-------|-------------|------------------|
 | 1   | page | index | blogPosts | 1     | GreaterThan | {"min": 300}     |
 
-```
-+----+------+-------+-----------+-------+-------------+------------------+
-| id | name | value | valueId   | group | validator   | validatorOptions |
-+----+------+-------+-----------+-------+-------------+------------------+
-|  1 | page | index | blogPosts |     1 | GreaterThan | {"min": 300}     |
-+----+------+-------+-----------+-------+-------------+------------------+
-```
 
 This is an example on how to create a permission. Here is the more detailed description:
 
