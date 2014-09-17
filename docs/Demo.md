@@ -47,7 +47,11 @@ This is an example on how to create a permission. Here is the more detailed desc
 
 *1) See the full validator list here: [ZF2 Documentation: Standard Validation Classes](http://framework.zend.com/manual/2.2/en/modules/zend.validator.set.html)
 
-*2) [JSON](http://en.wikipedia.org/wiki/JSON)
+*2) [JSON on Wikipedia](http://en.wikipedia.org/wiki/JSON)
+
+## Creating your own provider
+
+If you want to create your own provider, all you need to do is implementing `Eye4web\Zf2Abac\Provider\ProviderInterface`, and inject it into the assertion where you want to be using your own new provider.
 
 ---
 
