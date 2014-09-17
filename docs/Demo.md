@@ -42,7 +42,7 @@ This is an example on how to create a permission. Here is the more detailed desc
 * **value**: Specific access area
 * **valueId**: This is what we are going to validate
 * **group**: Permission group
-* **validator**: Name of the validator <sup>1</<sup>
+* **validator**: Name of the validator <sup>1</sup>
 
 1) See the full validator list here: [ZF2 Documentation: Standard Validation Classes](http://framework.zend.com/manual/2.2/en/modules/zend.validator.set.html)
 
