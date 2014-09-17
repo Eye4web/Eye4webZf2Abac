@@ -28,13 +28,13 @@ class AuthorizationServiceFactoryTest extends PHPUnit_Framework_TestCase
     public function testCreateService()
     {
         $assertionPluginManager = $this->getMockBuilder('Eye4web\Zf2Abac\Assertion\AssertionPluginManager')
-                                       ->disableOriginalConstructor()
-                                       ->getMock();
+            ->disableOriginalConstructor()
+            ->getMock();
 
         $this->serviceLocator->expects($this->at(0))
-                             ->method('get')
-                             ->with('Eye4web\Zf2Abac\Assertion\AssertionPluginManager')
-                             ->willReturn($assertionPluginManager);
+            ->method('get')
+            ->with('Eye4web\Zf2Abac\Assertion\AssertionPluginManager')
+            ->willReturn($assertionPluginManager);
 
 
         $result = $this->factory->createService($this->serviceLocator);

@@ -34,9 +34,9 @@ class HasPermissionPluginTest extends PHPUnit_Framework_TestCase
         ];
 
         $this->authorizationService->expects($this->once())
-                                   ->method('hasPermission')
-                                   ->with($assertion, $value, $attributes)
-                                   ->willReturn(true);
+            ->method('hasPermission')
+            ->with($assertion, $value, $attributes)
+            ->willReturn(true);
 
         $result = $this->plugin->__invoke($assertion, $value, $attributes);
 

@@ -37,9 +37,9 @@ class AuthorizationServiceTest extends PHPUnit_Framework_TestCase
         ];
 
         $this->assertionPluginManager->expects($this->once())
-                                     ->method('get')
-                                     ->with($assertionName)
-                                     ->willReturn(null);
+            ->method('get')
+            ->with($assertionName)
+            ->willReturn(null);
 
         $this->setExpectedException('Eye4web\Zf2Abac\Exception\AssertionNotFound');
 
@@ -57,14 +57,14 @@ class AuthorizationServiceTest extends PHPUnit_Framework_TestCase
         $assertion = $this->getMock('Eye4web\Zf2Abac\Assertion\AssertionInterface');
 
         $this->assertionPluginManager->expects($this->once())
-                                     ->method('get')
-                                     ->with($assertionName)
-                                     ->willReturn($assertion);
+            ->method('get')
+            ->with($assertionName)
+            ->willReturn($assertion);
 
         $assertion->expects($this->once())
-                  ->method('hasPermission')
-                  ->with($value, $attributes)
-                  ->willReturn(true);
+            ->method('hasPermission')
+            ->with($value, $attributes)
+            ->willReturn(true);
 
         $result = $this->service->hasPermission($assertionName, $value, $attributes);
 

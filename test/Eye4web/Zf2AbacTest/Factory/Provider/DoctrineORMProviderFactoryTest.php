@@ -30,16 +30,16 @@ class DoctrineORMProviderFactoryTest extends PHPUnit_Framework_TestCase
         $entityManager = $this->getMock('Doctrine\ORM\EntityManagerInterface');
 
         $this->serviceLocator->expects($this->at(0))
-                             ->method('get')
-                             ->with('Doctrine\ORM\EntityManager')
-                             ->willReturn($entityManager);
+            ->method('get')
+            ->with('Doctrine\ORM\EntityManager')
+            ->willReturn($entityManager);
 
         $validatorManager = $this->getMock('Zend\Validator\ValidatorPluginManager');
 
         $this->serviceLocator->expects($this->at(1))
-                             ->method('get')
-                             ->with('ValidatorManager')
-                             ->willReturn($validatorManager);
+            ->method('get')
+            ->with('ValidatorManager')
+            ->willReturn($validatorManager);
 
 
         $result = $this->factory->createService($this->serviceLocator);

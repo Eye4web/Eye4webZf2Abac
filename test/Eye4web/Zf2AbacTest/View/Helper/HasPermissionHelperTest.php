@@ -34,9 +34,9 @@ class HasPermissionHelperTest extends PHPUnit_Framework_TestCase
         ];
 
         $this->authorizationService->expects($this->once())
-                                   ->method('hasPermission')
-                                   ->with($assertion, $value, $attributes)
-                                   ->willReturn(true);
+            ->method('hasPermission')
+            ->with($assertion, $value, $attributes)
+            ->willReturn(true);
 
         $result = $this->helper->__invoke($assertion, $value, $attributes);
 
