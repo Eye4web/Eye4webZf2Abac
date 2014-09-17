@@ -15,7 +15,6 @@
                 <directory suffix=".php">./src/Eye4web/Zf2Abac/Exception</directory>
                 <file>./Module.php</file>
                 <file>./src/Eye4web/Zf2Abac/Assertion/AssertionPluginManager.php</file>
-                <file>./src/Eye4web/Zf2Abac/Factory/Assertion/AssertionPluginManagerFactory.php</file>
                 <file>./src/Eye4web/Zf2Abac/Assertion/AssertionInterface.php</file>
                 <file>./src/Eye4web/Zf2Abac/Permission/PermissionInterface.php</file>
                 <file>./src/Eye4web/Zf2Abac/Provider/ProviderInterface.php</file>
