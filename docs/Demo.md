@@ -36,10 +36,15 @@ Table: `abac_permissions`
 |----:|------|-------|-----------|-------|-------------|------------------|
 | 1   | page | index | blogPosts | 1     | GreaterThan | {"min": 300}     |
 
-
 This is an example on how to create a permission. Here is the more detailed description:
 
-* ~~name~~
+* **name**: Name of the access group
+* **value**: Specific access area
+* **valueId**: This is what we are going to validate
+* **group**: Permission group
+* **validator**: Name of the validator ^1
+
+1) See the full validator list here: [ZF2 Documentation: Standard Validation Classes](http://framework.zend.com/manual/2.2/en/modules/zend.validator.set.html)
 
 ---
 
@@ -191,7 +196,7 @@ public function indexAction()
     {
         /** @var \Eye4web\Zf2Abac\Service\AuthorizationService $abacAuthorizationService */
         $abacAuthorizationService = $serviceLocator->get('Eye4web\Zf2Abac\Service\AuthorizationService');
-
+    
         return new Service($abacAuthorizationService);
     }
 ```
