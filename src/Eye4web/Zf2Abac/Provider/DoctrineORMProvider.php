@@ -35,6 +35,7 @@ class DoctrineORMProvider implements ProviderInterface
         $collection = new PermissionCollection();
 
         $permissions = $this->objectManager->createQuery('select p from \Eye4web\Zf2Abac\Entity\Permission p where p.name = :name and p.value = :value');
+
         $permissions->setParameters([
             'name' => $name,
             'value' => $value,
