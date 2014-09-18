@@ -10,3 +10,8 @@ This documentation will go through the basics about setting up abac, and how to 
         1. [Writing your Assertion](/docs/2.Getting Started.md#writing-your-assertion)
             1. [Factory and providers](/docs/2.Getting Started.md#factory-and-providers)
             2. [Assertion and validators](/docs/2.Getting Started.md#assertion-and-validators)
+3. [Permission Groups](/docs/3.Permission Groups.md)
+4. [Providers](/docs/4.Providers.md)
+    1. [Doctrine ORM](/docs/4.Providers.md/doctrine-orm)
+        1.  [Database structure](/docs/4.Providers.md#database-structure)
+    2. [Creating your own provider](/docs/4.Providers.md#creating-your-own-provider)
