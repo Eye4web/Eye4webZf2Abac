@@ -6,6 +6,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Eye4web\Zf2Abac\Provider\DoctrineORMProvider;
 use PHPUnit_Framework_TestCase;
 use Zend\Validator\ValidatorPluginManager;
+use Eye4web\Zf2Abac\Collections\PermissionCollection;
 
 class DoctrineORMProviderTest extends PHPUnit_Framework_TestCase
 {
@@ -35,15 +36,17 @@ class DoctrineORMProviderTest extends PHPUnit_Framework_TestCase
         $this->provider = $provider;
     }
 
-    public function testGetPermission()
+    public function testGetPermissionOneGroup()
     {
         $name = "test";
         $value  = "test";
         $parameters = ['name' => $name, 'value' => $value];
-        $permissions = ['a' => 'a', 'b' => 'b'];
+
+        $permissionMock = $this->getMock('Eye4web\Zf2Abac\Entity\Permission');
+        $permissions = [$permissionMock];
 
         $query = $this->getMockBuilder('\Doctrine\ORM\AbstractQuery')
-            ->setMethods(array('setParameters', 'getResult'))
+            ->setMethods(['setParameters', 'getResult'])
             ->disableOriginalConstructor()
             ->getMockForAbstractClass();
 
@@ -60,13 +63,63 @@ class DoctrineORMProviderTest extends PHPUnit_Framework_TestCase
             ->method('getResult')
             ->willReturn($permissions);
 
+        $permissionMock->expects($this->once())
+                       ->method('getGroup')
+                       ->willReturn(0);
+
         /** @var \Eye4web\Zf2Abac\Collections\PermissionCollection $result */
         $result = $this->provider->getPermissions($name, $value);
 
-        $this->assertInstanceOf('Eye4web\Zf2Abac\Collections\PermissionCollection', $result);
+        $this->assertInstanceOf('Eye4web\Zf2Abac\Collections\PermissionCollection', $result[0]);
+    }
 
-        $this->assertTrue($result->contains('a'));
-        $this->assertTrue($result->contains('b'));
+    public function testGetPermissionMultipleGroups()
+    {
+        $name = "test";
+        $value  = "test";
+        $parameters = ['name' => $name, 'value' => $value];
+
+        $permissionMockOne = $this->getMock('Eye4web\Zf2Abac\Entity\Permission');
+        $permissionMockTwo = $this->getMock('Eye4web\Zf2Abac\Entity\Permission');
+        $permissionMockThree = $this->getMock('Eye4web\Zf2Abac\Entity\Permission');
+
+        $permissions = [$permissionMockOne, $permissionMockTwo, $permissionMockThree];
+
+        $query = $this->getMockBuilder('\Doctrine\ORM\AbstractQuery')
+            ->setMethods(['setParameters', 'getResult'])
+            ->disableOriginalConstructor()
+            ->getMockForAbstractClass();
+
+        $this->objectManager->expects($this->once())
+            ->method('createQuery')
+            ->with('select p from \Eye4web\Zf2Abac\Entity\Permission p where p.name = :name and p.value = :value')
+            ->willReturn($query);
+
+        $query->expects($this->at(0))
+            ->method('setParameters')
+            ->with($parameters);
+
+        $query->expects($this->at(1))
+            ->method('getResult')
+            ->willReturn($permissions);
+
+        $permissionMockOne->expects($this->once())
+            ->method('getGroup')
+            ->willReturn(0);
+
+        $permissionMockTwo->expects($this->once())
+            ->method('getGroup')
+            ->willReturn(1);
+
+        $permissionMockThree->expects($this->once())
+            ->method('getGroup')
+            ->willReturn(0);
+
+        /** @var \Eye4web\Zf2Abac\Collections\PermissionCollection $result */
+        $result = $this->provider->getPermissions($name, $value);
+
+        $this->assertInstanceOf('Eye4web\Zf2Abac\Collections\PermissionCollection', $result[0]);
+        $this->assertInstanceOf('Eye4web\Zf2Abac\Collections\PermissionCollection', $result[1]);
     }
 
     public function testGetValidatorSuccess()

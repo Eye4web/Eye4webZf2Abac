@@ -38,18 +38,10 @@ class DoctrineORMProvider implements ProviderInterface
             'value' => $value,
         ]);
 
-
         $permissionGroups = [];
 
         /** @var PermissionInterface $permission */
         foreach ($permissions->getResult() as $permission) {
-            if (!isset($attributes[$permission->getValueId()])) {
-                throw new Exception\RuntimeException(sprintf(
-                    'No value set for permission with id %s',
-                    $permission->getId()
-                ));
-            }
-
             $group = $permission->getGroup();
 
             if (!isset($permissionGroups[$group])) {
