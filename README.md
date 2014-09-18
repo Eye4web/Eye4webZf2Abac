@@ -39,9 +39,10 @@ Installation
 
 Inspiration
 ==========
-[ZfcRbac](https://github.com/ZF-Commons/zfc-rbac) (Docs & AssertionPluginManager).
+* [ZfcRbac](https://github.com/ZF-Commons/zfc-rbac) (Docs & AssertionPluginManager).
+
+Thank you.
 
 Author(s)
 ==========
-**nikolajpetersen**
-np@eye4web.dk
+* **nikolajpetersen**
