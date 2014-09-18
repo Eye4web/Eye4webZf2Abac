@@ -1,3 +1,21 @@
+# Introduction
+
+## Attrbiute-Based Access Control
+
+Abac stands for attribute-based access control. It represents a logical access control from simple access control lists to more capable role-based access, and also the very flexible methods for access control through different attributes.
+
+## Example of use
+
+For example, if you have a bulletin board, and wants to let users access different areas based on several attributes. That could for example be:
+
+* Min. age
+* User level (from - to)
+* Specific sex
+* Less than 3 warnings
+* _and much more..._
+
+Abac is great for purposes like this. The possibility to make assertions based on groups of permissions/attributes makes it very easy to customize and create permission groups suiting your needs.
+
 ---
 
 # Providers
@@ -24,12 +42,12 @@ This is an example on how to create a permission. Here is the more detailed desc
 * **value**: Specific access area
 * **valueId**: This is what we are going to validate
 * **group**: Permission group
-* **validator**: Name of the validator <sup>1)</sup>
-* **validatorOptions**: Options for the ``Zend\Validator`` in JSON-format <sup>2)</sup>
+* **validator**: Name of the validator <sup>1*</sup>
+* **validatorOptions**: Options for the ``Zend\Validator`` in JSON-format <sup>2*</sup>
 
-*1) See the full validator list here: [ZF2 Documentation: Standard Validation Classes](http://framework.zend.com/manual/2.2/en/modules/zend.validator.set.html)
+1) See the full validator list here: [ZF2 Documentation: Standard Validation Classes](http://framework.zend.com/manual/2.2/en/modules/zend.validator.set.html)
 
-*2) [JSON on Wikipedia](http://en.wikipedia.org/wiki/JSON)
+2) [JSON on Wikipedia](http://en.wikipedia.org/wiki/JSON)
 
 ## Creating your own provider
 
@@ -153,6 +171,8 @@ Here are some examples on how to use the helper, plugin and injecting the servic
 
 ### Controller plugin
 
+The Controller Plugin follows the syntax `$this->hasParmission($name, $value, array $attributes)`
+
 ```
 public function indexAction()
 {
@@ -165,6 +185,8 @@ public function indexAction()
 ```
 
 ### View helper
+
+The View Helper follows the syntax `$this->hasParmission($name, $value, array $attributes)`
 
 ```
 <?php if (!$this->hasPermission('page.view', 'index', ['blogPosts' => count($posts)])) { ?>
