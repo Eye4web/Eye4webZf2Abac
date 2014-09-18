@@ -17,7 +17,7 @@ This documentation will go through the basics about setting up abac, and how to 
     2. [Creating your own provider](/docs/4.Providers.md#creating-your-own-provider)
 5. [Using the Authorization Service](/docs/5.Using the Authorization Service.md)
     1. [Injection](/docs/5.Using the Authorization Service.md#injection)
-        1. [Using Factories](/docs/5.Using the Authorization Service.md#using-factories)
+        1. [Using Service Manager](/docs/5.Using the Authorization Service.md#using-service-manager)
     2. [Assertion manager](/docs/5.Using the Authorization Service.md#assertion-manager)
     3. [Check for permissions in a Service](/docs/5.Using the Authorization Service.md#check-for-permissions-in-a-service)
     4. [Using the Controller Plugin](/docs/5.Using the Authorization Service.md#using-the-controller-plugin)
