@@ -45,4 +45,4 @@ Thank you.
 
 Author(s)
 ==========
-* **nikolajpetersen**
+* [**nikolajpetersen**](https://github.com/Nikolajpetersen)
