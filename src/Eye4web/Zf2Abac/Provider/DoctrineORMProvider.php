@@ -24,16 +24,13 @@ class DoctrineORMProvider implements ProviderInterface
     }
 
     /**
-     * Get permissions from name and value
-     *
      * @param string $name
      * @param string $value
-     * @return PermissionCollection
+     * @return array|\Eye4web\Zf2Abac\Collections\PermissionCollection[]
+     * @throws \Eye4web\Zf2Abac\Exception\RuntimeException
      */
     public function getPermissions($name, $value)
     {
-        $collection = new PermissionCollection();
-
         $permissions = $this->objectManager->createQuery('select p from \Eye4web\Zf2Abac\Entity\Permission p where p.name = :name and p.value = :value');
 
         $permissions->setParameters([
@@ -41,12 +38,28 @@ class DoctrineORMProvider implements ProviderInterface
             'value' => $value,
         ]);
 
+
+        $permissionGroups = [];
+
         /** @var PermissionInterface $permission */
         foreach ($permissions->getResult() as $permission) {
-            $collection->add($permission);
+            if (!isset($attributes[$permission->getValueId()])) {
+                throw new Exception\RuntimeException(sprintf(
+                    'No value set for permission with id %s',
+                    $permission->getId()
+                ));
+            }
+
+            $group = $permission->getGroup();
+
+            if (!isset($permissionGroups[$group])) {
+                $permissionGroups[$group] = new PermissionCollection;
+            }
+
+            $permissionGroups[$group]->add($permission);
         }
 
-        return $collection;
+        return $permissionGroups;
     }
 
     /**
