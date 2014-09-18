@@ -36,3 +36,13 @@ Installation
         // ...
     );
     ```
+
+Inspiration
+==========
+* [ZfcRbac](https://github.com/ZF-Commons/zfc-rbac) (Docs & AssertionPluginManager).
+
+Thank you.
+
+Author(s)
+==========
+* [**nikolajpetersen**](https://github.com/Nikolajpetersen)

@@ -13,7 +13,7 @@ interface ProviderInterface
      *
      * @param string $name
      * @param string $value
-     * @return PermissionCollection
+     * @return array|PermissionCollection[]
      */
     public function getPermissions($name, $value);
 
