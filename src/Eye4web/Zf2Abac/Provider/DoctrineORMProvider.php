@@ -85,7 +85,9 @@ class DoctrineORMProvider implements ProviderInterface
                 ));
             }
 
-            $validator->setOptions($options);
+            foreach ($options as $method => $value) {
+                $validator->{$method}($value);
+            }
         }
 
         return $validator;
