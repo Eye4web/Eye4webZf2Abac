@@ -37,6 +37,10 @@ Installation
     );
     ```
 
+Usage
+==========
+See `docs` folder
+
 Inspiration
 ==========
 * [ZfcRbac](https://github.com/ZF-Commons/zfc-rbac) (Docs & AssertionPluginManager).
