@@ -29,7 +29,7 @@ class Permission implements PermissionInterface
     /**
      * @var string|null
      *
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(name="`value`", type="string", length=255, nullable=true)
      */
     protected $value;
 
@@ -43,7 +43,7 @@ class Permission implements PermissionInterface
     /**
      * @var int|null
      *
-     * @ORM\Column(type="integer", length=18, nullable=true)
+     * @ORM\Column(name="`group`", type="integer", length=18, nullable=true)
      */
     protected $group;
 
