@@ -13,7 +13,7 @@ class HasPermissionPluginFactory implements \Zend\ServiceManager\Factory\Factory
     public function __invoke(\Interop\Container\ContainerInterface $pluginManager, $requestedName, array $options = null)
     {
         /** @var ServiceLocatorInterface $serviceLocator */
-        $serviceLocator = $pluginManager->getServiceLocator();
+        $serviceLocator = $pluginManager;
 
         /** @var AuthorizationServiceInterface $authorizationService */
         $authorizationService = $serviceLocator->get('Eye4web\Zf2Abac\Service\AuthorizationService');
