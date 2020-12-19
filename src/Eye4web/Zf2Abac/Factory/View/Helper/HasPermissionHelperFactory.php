@@ -8,9 +8,9 @@ use Zend\ServiceManager\Config;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class HasPermissionHelperFactory implements FactoryInterface
+class HasPermissionHelperFactory implements \Zend\ServiceManager\Factory\FactoryInterface
 {
-    public function createService(ServiceLocatorInterface $pluginManager)
+    public function __invoke(\Interop\Container\ContainerInterface $pluginManager, $requestedName, array $options = null)
     {
         /** @var ServiceLocatorInterface $serviceLocator */
         $serviceLocator = $pluginManager->getServiceLocator();
