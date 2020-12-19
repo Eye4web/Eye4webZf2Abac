@@ -7,18 +7,19 @@ use Zend\ServiceManager\AbstractPluginManager;
 
 class AssertionPluginManager extends AbstractPluginManager
 {
-    /**
-     * {@inheritDoc}
-     */
-    public function validatePlugin($plugin)
+    protected $instanceOf = AssertionInterface::class;
+
+    public function validate($instance)
     {
-        if ($plugin instanceof AssertionInterface) {
+        if (empty($this->instanceOf) || $instance instanceof $this->instanceOf) {
             return;
         }
 
-        throw new Exception\RunetimeException(sprintf(
-            'Assertions must implement "Eye4web\Zf2Abac\Assertion\AssertionInterface", but "%s" was given',
-            is_object($plugin) ? get_class($plugin) : gettype($plugin)
+        throw new InvalidServiceException(sprintf(
+            'Plugin manager "%s" expected an instance of type "%s", but "%s" was received',
+            __CLASS__,
+            $this->instanceOf,
+            is_object($instance) ? get_class($instance) : gettype($instance)
         ));
     }
 

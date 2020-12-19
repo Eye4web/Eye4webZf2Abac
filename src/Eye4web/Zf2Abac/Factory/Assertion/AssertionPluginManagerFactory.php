@@ -18,8 +18,8 @@ class AssertionPluginManagerFactory implements \Zend\ServiceManager\Factory\Fact
         /** @var array $config */
         $config = $serviceLocator->get('Config')['eye4web_abac']['assertion_manager'];
 
-        $pluginManager = new AssertionPluginManager(new Config($config));
-        $pluginManager->setServiceLocator($serviceLocator);
+        $pluginManager = new AssertionPluginManager($serviceLocator);
+        //$pluginManager->setServiceLocator($serviceLocator);
 
         return $pluginManager;
     }
