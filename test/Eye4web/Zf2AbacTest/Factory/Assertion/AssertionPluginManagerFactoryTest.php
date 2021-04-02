@@ -23,6 +23,6 @@ class AssertionPluginManagerFactoryTest extends \PHPUnit_Framework_TestCase
         $pluginManager = $factory->createService($serviceManager);
 
         $this->assertInstanceOf('Eye4web\Zf2Abac\Assertion\AssertionPluginManager', $pluginManager);
-        $this->assertSame($serviceManager, $pluginManager->getServiceLocator());
+        $this->assertSame($serviceManager, $pluginManager);
     }
 }

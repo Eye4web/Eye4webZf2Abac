@@ -6,7 +6,7 @@ use Eye4web\Zf2Abac\Service\AuthorizationService;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class AuthorizationServiceFactory implements FactoryInterface
+class AuthorizationServiceFactory implements \Zend\ServiceManager\Factory\FactoryInterface
 {
     /**
      * Offer service
@@ -14,7 +14,7 @@ class AuthorizationServiceFactory implements FactoryInterface
      * @param ServiceLocatorInterface $serviceLocator
      * @return AuthorizationService
      */
-    public function createService(ServiceLocatorInterface $serviceLocator)
+    public function __invoke(\Psr\Container\ContainerInterface $serviceLocator, $requestedName, array $options = null)
     {
         /* @var \Eye4web\Zf2Abac\Assertion\AssertionPluginManager $assertionPluginManager */
         $assertionPluginManager = $serviceLocator->get('Eye4web\Zf2Abac\Assertion\AssertionPluginManager');

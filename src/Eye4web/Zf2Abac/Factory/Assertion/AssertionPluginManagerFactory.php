@@ -7,19 +7,19 @@ use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Eye4web\Zf2Abac\Assertion\AssertionPluginManager;
 
-class AssertionPluginManagerFactory implements FactoryInterface
+class AssertionPluginManagerFactory implements \Zend\ServiceManager\Factory\FactoryInterface
 {
     /**
      * {@inheritDoc}
      * @return AssertionPluginManager
      */
-    public function createService(ServiceLocatorInterface $serviceLocator)
+    public function __invoke(\Psr\Container\ContainerInterface $serviceLocator, $requestedName, array $options = null)
     {
         /** @var array $config */
         $config = $serviceLocator->get('Config')['eye4web_abac']['assertion_manager'];
 
-        $pluginManager = new AssertionPluginManager(new Config($config));
-        $pluginManager->setServiceLocator($serviceLocator);
+        $pluginManager = new AssertionPluginManager($serviceLocator, $config);
+        //$pluginManager->setServiceLocator($serviceLocator);
 
         return $pluginManager;
     }

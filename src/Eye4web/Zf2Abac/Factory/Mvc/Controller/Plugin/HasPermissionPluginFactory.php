@@ -8,12 +8,12 @@ use Zend\ServiceManager\Config;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class HasPermissionPluginFactory implements FactoryInterface
+class HasPermissionPluginFactory implements \Zend\ServiceManager\Factory\FactoryInterface
 {
-    public function createService(ServiceLocatorInterface $pluginManager)
+    public function __invoke(\Psr\Container\ContainerInterface $pluginManager, $requestedName, array $options = null)
     {
         /** @var ServiceLocatorInterface $serviceLocator */
-        $serviceLocator = $pluginManager->getServiceLocator();
+        $serviceLocator = $pluginManager;
 
         /** @var AuthorizationServiceInterface $authorizationService */
         $authorizationService = $serviceLocator->get('Eye4web\Zf2Abac\Service\AuthorizationService');
