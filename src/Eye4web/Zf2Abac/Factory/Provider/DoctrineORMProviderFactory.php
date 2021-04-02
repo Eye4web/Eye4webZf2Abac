@@ -15,7 +15,7 @@ class DoctrineORMProviderFactory implements \Zend\ServiceManager\Factory\Factory
      * {@inheritDoc}
      * @return DoctrineORMProvider
      */
-    public function __invoke(\Interop\Container\ContainerInterface $serviceLocator, $requestedName, array $options = null)
+    public function __invoke(\Psr\Container\ContainerInterface $serviceLocator, $requestedName, array $options = null)
     {
         /** @var EntityManagerInterface $objectManager */
         $objectManager = $serviceLocator->get('Doctrine\ORM\EntityManager');

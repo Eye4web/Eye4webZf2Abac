@@ -32,7 +32,7 @@ class AuthorizationService implements AuthorizationServiceInterface
         if (!$assertion) {
             throw new Exception\AssertionNotFound(sprintf(
                 'The assertion \"%s\" was not found',
-                is_object($assertion) ? get_class($assertion) : gettype($assertion)
+                is_object($assertion) ? $assertion::class : gettype($assertion)
             ));
         }
 

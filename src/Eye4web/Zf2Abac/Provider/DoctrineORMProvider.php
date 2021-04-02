@@ -70,7 +70,7 @@ class DoctrineORMProvider implements ProviderInterface
         if (!$validator) {
             throw new Exception\ValidatorNotFound(sprintf(
                 'The validator \"%s\" could not be found',
-                is_object($validator) ? get_class($validator) : gettype($validator)
+                is_object($validator) ? $validator::class : gettype($validator)
             ));
         }
 
@@ -81,7 +81,7 @@ class DoctrineORMProvider implements ProviderInterface
             if (!$options) {
                 throw new Exception\RuntimeException(sprintf(
                     'The options for validator \"%s\" must be in json format',
-                    is_object($validator) ? get_class($validator) : gettype($validator)
+                    is_object($validator) ? $validator::class : gettype($validator)
                 ));
             }
 

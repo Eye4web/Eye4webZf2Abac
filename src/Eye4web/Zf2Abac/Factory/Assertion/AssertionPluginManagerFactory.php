@@ -13,7 +13,7 @@ class AssertionPluginManagerFactory implements \Zend\ServiceManager\Factory\Fact
      * {@inheritDoc}
      * @return AssertionPluginManager
      */
-    public function __invoke(\Interop\Container\ContainerInterface $serviceLocator, $requestedName, array $options = null)
+    public function __invoke(\Psr\Container\ContainerInterface $serviceLocator, $requestedName, array $options = null)
     {
         /** @var array $config */
         $config = $serviceLocator->get('Config')['eye4web_abac']['assertion_manager'];

@@ -19,7 +19,7 @@ class AssertionPluginManager extends AbstractPluginManager
             'Plugin manager "%s" expected an instance of type "%s", but "%s" was received',
             __CLASS__,
             $this->instanceOf,
-            is_object($instance) ? get_class($instance) : gettype($instance)
+            is_object($instance) ? $instance::class : gettype($instance)
         ));
     }
 

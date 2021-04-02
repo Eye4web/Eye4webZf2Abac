@@ -14,7 +14,7 @@ class AuthorizationServiceFactory implements \Zend\ServiceManager\Factory\Factor
      * @param ServiceLocatorInterface $serviceLocator
      * @return AuthorizationService
      */
-    public function __invoke(\Interop\Container\ContainerInterface $serviceLocator, $requestedName, array $options = null)
+    public function __invoke(\Psr\Container\ContainerInterface $serviceLocator, $requestedName, array $options = null)
     {
         /* @var \Eye4web\Zf2Abac\Assertion\AssertionPluginManager $assertionPluginManager */
         $assertionPluginManager = $serviceLocator->get('Eye4web\Zf2Abac\Assertion\AssertionPluginManager');
